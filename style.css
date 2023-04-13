@@ -7,7 +7,7 @@
 
 /* CUSTOM_PROPERTIES */
 :root {
-	--main-bg-color: #a7adc6;
+	--bg-color: #a7adc6;
 	--bg-gradient: radial-gradient(
 		circle,
 		rgba(0, 0, 0, 0.5) 0 10%,
@@ -16,7 +16,7 @@
 	--bg-size: 1rem 1rem;
 	--bg-position: 100% 50%;
 	--main-color: #2c1320;
-	--btn-hover: #8a7891;
+	--secondary-color: #8a7891;
 	--transition: border-color 300ms ease-out, background-color 300ms ease-out, color 300ms ease-out;
 }
 
@@ -47,7 +47,7 @@ input {
 
 /* STYLES */
 body {
-	background-color: var(--main-bg-color);
+	background-color: var(--bg-color);
 	background-image: var(--bg-gradient);
 	background-size: var(--bg-size);
 	background-position: var(--bg-position);
@@ -68,7 +68,7 @@ body {
 #title {
 	font-size: clamp(2rem, 10vw, 3rem);
 	color: var(--main-color);
-	background: var(--main-bg-color);
+	background: var(--bg-color);
 }
 
 #input-group {
@@ -84,8 +84,8 @@ body {
 	border-radius: 0.5rem;
 	text-align: center;
 	font-size: 1rem;
-	background-color: var(--main-bg-color);
-	border: 1px solid var(--btn-hover);
+	background-color: var(--bg-color);
+	border: 1px solid var(--secondary-color);
 	color: #000;
 	transition: var(--transition);
 }
