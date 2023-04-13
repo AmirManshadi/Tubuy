@@ -7,9 +7,31 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
+		<link rel="stylesheet" href="style.css" />
+		<title>tubuy</title>
 	</head>
 	<body>
+		<div id="app">
+			<h1 id="title">tubuy</h1>
+			<div id="input-group">
+				<input
+					type="text"
+					name="item"
+					id="input"
+					placeholder="add item"
+					autofocus
+					autocomplete="off"
+				/>
+				<button type="submit" id="submit-btn">add</button>
+			</div>
+			<ul id="item-list">
+        <li class="item">pizza bread</li>
+        <li class="item">car</li>
+        <li class="item">house</li>
+        <li class="item">gloves</li>
+        <li class="item">new iPhone</li>
+      </ul>
+		</div>
 		<script type="module" src="/main.js"></script>
 	</body>
 </html>
