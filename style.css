@@ -17,7 +17,11 @@
 	--bg-position: 100% 50%;
 	--main-color: #2c1320;
 	--secondary-color: #8a7891;
-	--transition: border-color 300ms ease-out, background-color 300ms ease-out, color 300ms ease-out;
+	--text-color-dark: #000;
+	--text-color-light: #fff;
+	--border: 1px solid var(--secondary-color);
+	--transition: border-color 300ms ease-out, background-color 300ms ease-out,
+		color 300ms ease-out;
 }
 
 /* RESET */
@@ -85,8 +89,8 @@ body {
 	text-align: center;
 	font-size: 1rem;
 	background-color: var(--bg-color);
-	border: 1px solid var(--secondary-color);
-	color: #000;
+	border: var(--border);
+	color: var(--text-color-dark);
 	transition: var(--transition);
 }
 #input-group input:focus-visible,
@@ -112,7 +116,7 @@ body {
 #item-list .item {
 	flex-grow: 1;
 	background-color: var(--main-color);
-	color: #fff;
+	color: var(--text-color-light);
 	padding-inline: 1.5rem;
 	cursor: pointer;
 }
