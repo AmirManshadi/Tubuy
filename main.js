@@ -5,9 +5,10 @@ import { initializeApp } from "firebase/app"
 import {
 	getFirestore,
 	collection,
-	getDocs,
 	addDoc,
 	onSnapshot,
+	deleteDoc,
+	doc,
 } from "firebase/firestore"
 // * Utilities
 import fetchItems from "./fetchItems"
@@ -32,9 +33,23 @@ onSnapshot(collectionRef, snapshot => {
 
 // Event Listners
 document.getElementById("input-form").addEventListener("submit", e => {
-  e.preventDefault()
+	e.preventDefault()
+
 	const { target: form } = e
+
 	addDoc(collectionRef, { item: form.item.value })
 		.then(() => console.log("collection updated"))
+		.catch(err => console.error(err.message))
+})
+
+document.getElementById("item-list").addEventListener("click", e => {
+	e.preventDefault()
+
+	const { target } = e
+
+	if (target.tagName !== "LI") return
+
+	deleteDoc(doc(db, "items", `${target.id}`))
+		.then(() => console.log("item deleted"))
 		.catch(err => console.error(err.message))
 })

@@ -10,7 +10,7 @@ export default function renderItems(items) {
 function createListItem(data) {
 	const li = document.createElement("li")
 	li.textContent = data.itemValue
-	li.setAttribute("data-id", data.itemId)
+	li.id = data.itemId
 	li.classList.add("item")
 	return li
 }
