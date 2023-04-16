@@ -75,14 +75,14 @@ body {
 	background: var(--bg-color);
 }
 
-#input-group {
+#input-form {
 	display: flex;
 	flex-direction: column;
 	align-self: stretch;
 	gap: 1rem;
 }
-#input-group input,
-#input-group button,
+#input-form input,
+#input-form button,
 #item-list .item {
 	padding: 0.75rem;
 	border-radius: 0.5rem;
@@ -93,17 +93,17 @@ body {
 	color: var(--text-color-dark);
 	transition: var(--transition);
 }
-#input-group input:focus-visible,
-#input-group button:active {
+#input-form input:focus-visible,
+#input-form button:active {
 	border-color: var(--main-color);
 }
-#input-group input::placeholder {
+#input-form input::placeholder {
 	color: #000a;
 }
-#input-group button {
+#input-form button {
 	cursor: pointer;
 }
-#input-group button:hover {
+#input-form button:hover {
 	background-color: var(--main-color);
 	color: #fff;
 }
