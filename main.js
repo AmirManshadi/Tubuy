@@ -38,8 +38,9 @@ document.getElementById("input-form").addEventListener("submit", e => {
 	const { target: form } = e
 
 	addDoc(collectionRef, { item: form.item.value })
-		.then(() => console.log("collection updated"))
 		.catch(err => console.error(err.message))
+    
+  form.item.value = ''
 })
 
 document.getElementById("item-list").addEventListener("click", e => {
@@ -49,7 +50,7 @@ document.getElementById("item-list").addEventListener("click", e => {
 
 	if (target.tagName !== "LI") return
 
-	deleteDoc(doc(db, "items", `${target.id}`))
-		.then(() => console.log("item deleted"))
-		.catch(err => console.error(err.message))
+	deleteDoc(doc(db, "items", `${target.id}`)).catch(err =>
+		console.error(err.message)
+	)
 })
