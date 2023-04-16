@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs, addDoc, onSnapshot } from "firebase/
 // * Utilities
 import fetchItems from "./fetchItems"
 import renderItems from "./renderItems"
+import clearList from "./clearList"
 
 // Initialize Firebase
 const app = initializeApp(FIREBASE_CONFIG)
@@ -17,8 +18,8 @@ const db = getFirestore(app)
 const collectionRef = collection(db, "items")
 
 // Real-Time Collection Data Fetch
-// todo: create a subscription (real-time database listner)
 onSnapshot(collectionRef, (snapshot) => {
+  clearList()
   const items = fetchItems(snapshot.docs)
   renderItems(items)
 })
