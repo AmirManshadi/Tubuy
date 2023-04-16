@@ -1,3 +1,3 @@
 export default function clearList() {
-  document.getElementById('item-list').innerHTML = ''
+	document.getElementById("item-list").innerHTML = ""
 }

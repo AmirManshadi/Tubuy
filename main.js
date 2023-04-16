@@ -37,10 +37,11 @@ document.getElementById("input-form").addEventListener("submit", e => {
 
 	const { target: form } = e
 
-	addDoc(collectionRef, { item: form.item.value })
-		.catch(err => console.error(err.message))
-    
-  form.item.value = ''
+	addDoc(collectionRef, { item: form.item.value }).catch(err =>
+		console.error(err.message)
+	)
+
+	form.item.value = ""
 })
 
 document.getElementById("item-list").addEventListener("click", e => {
