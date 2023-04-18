@@ -9,6 +9,9 @@ import {
 	onSnapshot,
 	deleteDoc,
 	doc,
+	query,
+	orderBy,
+	serverTimestamp,
 } from "firebase/firestore"
 // * Utilities
 import fetchItems from "./fetchItems"
@@ -24,22 +27,26 @@ const db = getFirestore(app)
 // Create Collection Reference
 const collectionRef = collection(db, "items")
 
+// Create query for timestamp
+const q = query(collectionRef, orderBy("timestamp", "asc"))
+
 // Real-Time Collection Data Fetch
-onSnapshot(collectionRef, snapshot => {
+onSnapshot(q, snapshot => {
 	clearList()
 	const items = fetchItems(snapshot.docs)
 	renderItems(items)
 })
 
-// Event Listners
+// Event Listeners
 document.getElementById("input-form").addEventListener("submit", e => {
 	e.preventDefault()
 
 	const { target: form } = e
 
-	addDoc(collectionRef, { item: form.item.value }).catch(err =>
-		console.error(err.message)
-	)
+	addDoc(collectionRef, {
+		item: form.item.value,
+		timestamp: serverTimestamp(),
+	}).catch(err => console.error(err.message))
 
 	form.item.value = ""
 })
