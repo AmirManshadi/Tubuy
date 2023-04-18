@@ -51,7 +51,7 @@ document.getElementById("input-form").addEventListener("submit", e => {
 	form.item.value = ""
 })
 
-document.getElementById("item-list").addEventListener("click", e => {
+document.getElementById("item-list").addEventListener("dblclick", e => {
 	e.preventDefault()
 
 	const { target } = e
